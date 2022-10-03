@@ -1,0 +1,459 @@
+/*VARIABLES*/
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html:root {
+  /* text */
+  --primary: #1C3879;
+  --light-primary: #BBF3C7;
+  --white: #fff;
+  --black: #000000;
+  --font: "Manrope", sans-serif;
+
+
+  /* shadow */
+  --box-shadow: 0px 7.343283653259277px 29.37313461303711px 0px rgba(33, 14, 18, 0.1);
+
+  /* buttons */
+  --btn-bg: #0a8e26;
+  --btn-bg-light: rgba(10, 142, 38, 0.08);
+  --btn-transition: all 0.4s ease-in-out;
+  --btn-hover: #50a0e1;
+}
+
+html h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+label,
+p {
+  font-family: var(--font);
+}
+
+/*VARIABLES ENDS*/
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;600,700,800,900&display=swap');
+
+.App {
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9fa;
+  /* height: 100vh; */
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #eff0f2;
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #000;
+  /* padding: 5% 2%; */
+  width: 100%;
+}
+
+.contact-form {
+  /*height: 100vh; */
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  padding: 3% 2%;
+  margin: 3% 10%;
+}
+
+.form {
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  background-color: #f9f9fa;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  -webkit-box-shadow: 0 0 10px #d3ddf4;
+  box-shadow: 0 0 10px #d3ddf4;
+  transition: all 0.4s ease-in;
+  font-weight: 600;
+
+}
+
+/* Update Form Modal*/
+.updateForm {
+  border-radius: 10px;
+  width: 100%;
+  background-color: #f9f9fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-box-shadow: 0 0 10px #d3ddf4;
+  box-shadow: 0 0 10px #d3ddf4;
+  transition: all 0.4s ease-in;
+  font-weight: 600;
+}
+
+/* Update Form Modal Ends */
+.form .textArea {
+  -webkit-box-shadow: 0 0 10px #d3ddf4;
+  box-shadow: 0 0 10px #d3ddf4;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 5px;
+  margin: 0 10px;
+  border-radius: 10px;
+  transition: all 0.4s ease-in;
+  font-family: 'Roboto Regular',
+    sans-serif;
+
+}
+
+.form textarea {
+  width: 90%;
+  border: none !important;
+  border-color: transparent !important;
+  outline: transparent !important;
+  background-color: #f9f9fa;
+  transition: all 0.4s ease-in;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.form .textArea span {
+  width: 30px;
+  height: 30px;
+  background-color: #e4e9f5;
+  border-radius: 50%;
+  /* display: inline-block; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease-in;
+}
+
+.inputHolder {
+  -webkit-box-shadow: 0 0 10px #d3ddf4;
+  box-shadow: 0 0 10px #d3ddf4;
+  width: 100%;
+  border-radius: 15px !important;
+  padding: 5px;
+  /* height: 40px; */
+  border-radius: 3px;
+  border: none;
+  font-family: "Manrope";
+  /* letter-spacing: 1px; */
+  margin: 1px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #1C3879;
+
+}
+
+.inputHolder label {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Manrope";
+  padding: 10px 0px 2px;
+  text-align: left;
+  /* width: 100%; */
+}
+
+.inputHolder h6 {
+  font-size: 14px;
+  font-weight: 300;
+  font-family: "Manrope";
+  padding: 10px 0px;
+  text-align: left;
+  width: 100%;
+}
+
+.inputHolder span {
+  width: 30px;
+  height: 30px;
+  background-color: #e4e9f5;
+  border-radius: 50%;
+  display: inline-block;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputHolder input[type="text"] {
+  border: none;
+  width: 80%;
+  padding: 10px;
+  outline: none;
+  color: #1C3879;
+  background-color: #f9f9fa;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.4s ease-in;
+  font-family: 'Roboto Regular',
+    sans-serif;
+
+}
+
+.inputHolder input[type="number"] {
+  border: none;
+  width: 80%;
+  padding: 10px;
+  outline: none;
+  color: #1C3879;
+  background-color: #f9f9fa;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.4s ease-in;
+  font-family: 'Roboto Regular',
+    sans-serif;
+
+}
+
+.inputHolder input[type="email"] {
+  border: none;
+  width: 80%;
+  padding: 10px;
+  color: #1C3879;
+  background-color: #f9f9fa;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.4s ease-in;
+  font-family: 'Roboto Regular',
+    sans-serif;
+
+}
+
+.code {
+  -webkit-box-shadow: 0 0 10px #d3ddf4;
+  box-shadow: 0 0 10px #d3ddf4;
+  display: flex;
+  background-color: #f9f9fa;
+  font-size: 20px;
+  font-weight: 300;
+  color: #fff;
+  font-family: "Roboto Roboto", sans-serif;
+}
+
+.code span {
+  background-color: #1C3879;
+  color: #fff;
+  padding: 10px;
+  border-radius: 6px 0 0 6px;
+  font-size: 300;
+
+}
+
+.code input {
+  border: none;
+  background-color: #f9f9fa;
+  padding: 10px;
+  border-radius: 0 6px 6px 0;
+  font-size: 400;
+  font-size: 17px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.formBtn {
+  width: 150px;
+  height: 50px !important;
+  border-radius: 5px !important;
+  color: #d3ddf4 !important;
+  background-color: #1C3879 !important;
+  outline: none !important;
+  font-size: 18px !important;
+  margin: 0 0 15px;
+}
+
+
+/* SELECTOR */
+.ant-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.formSelector {
+  width: 310px;
+}
+
+.selector {
+  -webkit-box-shadow: 0 0 10px #d3ddf4;
+  box-shadow: 0 0 10px #d3ddf4;
+  width: 100% !important;
+  border: none;
+  /* border-radius: 100px; */
+  /* height: 40px; */
+  padding: 5px;
+  outline: none;
+  color: #1C3879;
+  background-color: #f9f9fa;
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px !important;
+  font-family: 'Roboto Regular',
+    sans-serif;
+  font-size: 600;
+}
+
+.selector_phoneIcon {
+  width: 30px;
+  height: 30px;
+  background-color: #e4e9f5;
+  border-radius: 50%;
+  display: inline-block;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ant-select {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #f0f0f0;
+  text-align: left;
+  margin: 1px 8px;
+  padding: 5px !important;
+  cursor: pointer;
+  color: #1C3879 !important;
+}
+
+.anticon svg {
+  display: none !important;
+}
+
+.ant-select-selector {
+  width: 100%;
+  padding: 0;
+}
+
+
+.ant-select-selection-search {
+  display: none;
+}
+
+.ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+  background-color: #d3ddf4;
+}
+
+.ant-select-item {
+  /* color: rgba(0, 0, 0, .85); */
+  cursor: pointer;
+  transition: all .20s ease-out;
+}
+
+.ant-select-single.ant-select-open .ant-select-selection-item {
+  color: #1C3879 !important;
+  background-color: #d3ddf4 !important;
+
+}
+
+
+.ant-select-item-option {
+  display: flex;
+}
+
+.ant-select-item,
+.ant-select-item-empty {
+  position: relative;
+  display: block;
+  min-height: 32px;
+  padding: 5px 12px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.ant-select-dropdown {
+  margin: 0;
+  color: rgba(0, 0, 0, .85);
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  font-feature-settings: "tnum", "tnum", ;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  z-index: 1050;
+  box-sizing: border-box;
+  padding: 4px 0;
+  overflow: hidden;
+  font-size: 14px;
+  font-variant: normal;
+  background-color: #fff;
+  border-radius: 2px;
+  outline: none;
+  box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%), 0 9px 28px 8px rgb(0 0 0 / 5%);
+}
+
+/* SELECTOR ends */
+
+/* CUSTOM MODAL */
+.ant-modal-footer {
+  display: none;
+}
+
+/* CUSTOM MODAL ends */
+
+
+/* ANT CHECKBOX */
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+/* ANT CHECKBOX ends*/

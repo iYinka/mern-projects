@@ -1,0 +1,49 @@
+.root {
+
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20;
+  text-align: center;
+}
+
+.root img {
+  width: 300;
+}
+
+
+.root h2 {
+  font: var(--font);
+  font-size: 16;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+}
+
+.root h5 {
+  font: var(--font);
+  font-size: 11;
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .mainScreen {
+    display: none;
+  }
+}
+
+
+.restrictionScreen {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .restrictionScreen {
+    display: flex;
+  }
+}

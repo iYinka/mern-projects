@@ -1,0 +1,44 @@
+.loaderBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: var(--primary);
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 14px;
+  transition: var(--btn-transition);
+  min-width: 100px;
+  cursor: pointer;
+}
+
+.loaderBtn:hover {
+  background-color: var(--hover);
+}
+
+.loaderBtn p {
+  margin: 0;
+}
+
+.loaderBtnSpin {
+  display: inline;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  /* padding: 10px 0px 10px 5px; */
+  border-radius: 5px;
+  background-color: var(--btn-bg);
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 14px;
+  transition: var(--btn-transition);
+  cursor: pointer;
+  min-width: 200px;
+}
+
+/* .spin { */
+/* display: flex; */
+/* min-width: 100px; */
+/* } */

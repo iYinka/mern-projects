@@ -1,0 +1,73 @@
+.HeaderTop {
+  width: 100%;
+  /* height: 100px; */
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  /* position: fixed; */
+  /* top: 0; */
+  /* z-index: 1; */
+  /* padding: 10%; */
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.topBar ul {
+  list-style: none;
+  padding: 0;
+  /* margin: 10px 0px; */
+  /* border-radius: 10px; */
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  background-color: #ffffff;
+  /* box-shadow: 0 0 4px rgba(0, 0, 0, 0.36); */
+  overflow-y: hidden;
+  width: 100%;
+}
+
+.topBar ul li {
+  font-family: "Manrope";
+  font-size: 20px;
+  font-weight: 400;
+  padding: 15px 20px 0px;
+  /* min-width: 120px; */
+  text-align: center;
+  color: #000000;
+  cursor: pointer;
+  height: 100%;
+
+}
+
+.topBar ul li.active {
+  color: #1C3879;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.headerAction button {
+  border: none;
+  padding: 15px 20px;
+  margin: 10px 0px;
+  border-radius: 5px;
+  font-family: "Manrope";
+  font-size: 13px;
+  font-weight: 400;
+  color: #ffffff;
+  background-color: #ff0000;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.headerAction button:focus {
+  outline: none;
+}
+
+.headerAction button:hover {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.56);
+}

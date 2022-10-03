@@ -1,0 +1,473 @@
+.container {
+  min-height: 100vh;
+  width: 100vw;
+  border-top: 4px solid var(--primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container h2 {
+  font-family: "Manrope";
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.container h6 {
+  font-family: "Manrope";
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0px 0px 20px 0px;
+  text-align: center;
+}
+
+.stepsForm {
+  min-height: 100vh;
+  padding: 20px 10px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.formContainer {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  border-radius: 3px;
+  padding: 20px;
+  width: 80%;
+  margin-top: 15px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageFormContainer {
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.36);
+  border-radius: 5px;
+  min-height: 100px;
+}
+
+.formBody {
+  padding: 15px 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+@media (max-width: 1024px) {
+  .form {
+    width: 90%;
+  }
+}
+
+@media (max-width: 425px) {
+  .form {
+    width: 100%;
+  }
+
+  .formContainer {
+    width: 100%;
+  }
+}
+
+
+.alert {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.actionBtns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.actionBtns .next {
+  border: none;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 30px;
+  background-color: var(--primary);
+  color: #ffffff;
+  border-radius: 5px;
+  width: 180px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.actionBtns .next:focus {
+  outline: none;
+}
+
+.actionBtns .next:hover {
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.36);
+}
+
+.actionBtns .disabled {
+  border: none;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 30px;
+  background-color: #707070;
+  color: #ffffff;
+  border-radius: 5px;
+  width: 180px;
+  pointer-events: none;
+  transition: all 0.4s ease-in-out;
+}
+
+.actionBtns .prev {
+  border: none;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 30px;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 5px;
+  width: 180px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.actionBtns .disabled:focus {
+  outline: none;
+}
+
+.actionBtns .prev:focus {
+  outline: none;
+}
+
+.actionBtns .prev:hover {
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.36);
+}
+
+@media (max-width: 598px) {
+  .actionBtns .prev {
+    width: 100%;
+  }
+
+  .actionBtns .next {
+    width: 100%;
+  }
+
+  .actionBtns .disabled {
+    width: 100%;
+  }
+}
+
+.inputHolder label {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Manrope";
+  padding: 10px 0px;
+  text-align: left;
+  width: 100%;
+}
+
+.inputHolder h6 {
+  font-size: 14px;
+  font-weight: 300;
+  font-family: "Manrope";
+  padding: 10px 0px;
+  text-align: left;
+  width: 100%;
+}
+
+.inputHolder input[type="text"] {
+  width: 100%;
+  border: 1px solid #000000;
+  padding: 10px;
+  height: 50px;
+  border-radius: 3px;
+  font-family: "Manrope";
+  letter-spacing: 1px;
+  font-size: 13px;
+  font-weight: 300;
+  margin: 5px 0 0 0;
+}
+
+.inputHolder input[type="number"] {
+  width: 100%;
+  border: 1px solid #000000;
+  padding: 10px;
+  height: 50px;
+  border-radius: 3px;
+  font-family: "Manrope";
+  letter-spacing: 1px;
+  font-size: 13px;
+  font-weight: 300;
+  margin: 5px 0 0 0;
+}
+
+.inputHolder input[type="password"] {
+  width: 100%;
+  /* border: 1px solid #000000; */
+  padding: 5px;
+  height: 35px;
+  border-radius: 3px;
+  font-family: "Manrope";
+  letter-spacing: 1px;
+  font-size: 13px;
+  font-weight: 300;
+  margin: 5px 0 0 0;
+}
+
+
+
+/* .inputHolder input[type="password"]::after {
+  border-color: none !important;
+  border-right-width: none !important;
+  z-index: 0 !important;
+} */
+.inputHolder input[type="password"]:focus {
+  box-shadow: none;
+}
+
+
+.pass input[type="text"] {
+
+  border: none;
+  padding: 5px !important;
+  height: 40px !important;
+  margin-top: 0;
+}
+
+.inputHolder .pass input[type="text"]:focus {
+  box-shadow: none;
+  border: none !important;
+}
+
+.inputHolder textarea {
+  width: 100%;
+  border: 1px solid #000000;
+  padding: 10px;
+  border-radius: 3px;
+  font-family: "Manrope";
+  letter-spacing: 1px;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 5px 0 0 0;
+}
+
+/* vendor */
+.vendorInfo h4 {
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* country and state */
+.country {
+  width: 100%;
+  border: 1px solid #000000;
+  padding: 10px;
+  height: 50px;
+  border-radius: 3px;
+  font-family: "Manrope";
+  letter-spacing: 1px;
+  font-size: 13px;
+  font-weight: 300;
+  margin: 5px 0 0 0;
+}
+
+/* step 3 */
+.docTitle {
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 16px;
+  margin: 20px 0px 5px 5px;
+  text-align: left;
+}
+
+.documentUpload {
+  height: "100px";
+  width: "100px";
+  border: 1px dashed #000000;
+  border-radius: 3px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: border .24s ease-in-out,
+}
+
+.documentUpload svg {
+  color: var(--primary);
+}
+
+.documentUpload h4 {
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0px;
+  text-align: center;
+}
+
+.documentUpload h6 {
+  font-family: "Manrope";
+  font-weight: 300;
+  font-size: 14px;
+  margin: 0px;
+  text-align: center;
+}
+
+.documentUpload img {
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+}
+
+/* step 3 */
+
+/* success */
+.success {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.success h6 {
+  font-family: "Manrope";
+  font-weight: 300;
+  font-size: 14px;
+  text-align: center;
+  width: 60%;
+  margin-top: 10px;
+}
+
+.success button {
+  border: none;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 30px;
+  background-color: var(--primary);
+  color: #ffffff;
+  border-radius: 5px;
+  width: 180px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.success button:focus {
+  outline: none;
+}
+
+.success button:hover {
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.36);
+}
+
+/* success */
+
+.bottomLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.bottomLinks p {
+  font-family: "Manrope";
+  font-weight: 200;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.bottomLinks p span {
+  color: var(--primary);
+  margin-left: 5px;
+}
+
+/* BUTTONS Blinking */
+.btnDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+.loaderBtn {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: var(--btn-bg);
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 14px;
+  transition: var(--btn-transition);
+  min-width: 100px;
+  cursor: pointer;
+  gap: 10px;
+}
+
+
+.loaderBtn:hover {
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.36);
+  background-color: var(--btn-hover);
+  color: #fff;
+}
+
+.blink_me {
+  animation: blinker 1s linear infinite;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* BUTTONS Blinking ENDS*/
