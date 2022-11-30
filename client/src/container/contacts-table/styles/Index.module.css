@@ -367,8 +367,13 @@
 
 .table tbody tr td .action .md_delete {
   cursor: pointer;
+  color: #ff0000;
 }
 
+.table tbody tr td .action .md_delete:hover {
+  color: #3f1212;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+}
 
 .table tbody tr td .action .option {
   border: none;

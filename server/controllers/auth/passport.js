@@ -1,4 +1,4 @@
-import { Strategy as GoogleStrategy } from "passport-google-oauth20";
+import { GoogleStrategy } from "passport-google-oauth20";
 import User from "../../model/userModel.js";
 
 ////////////GOOGLE AUTH2.0///////////////

@@ -124,21 +124,22 @@ function ContactForm(props) {
                             {/* <label htmlFor="c_name">Company Name</label> */}
                             <Input
                                 id="c_phone"
-                                type="tel"
+                                type="number"
+                                autocomplete="off"
                                 placeholder="Phone: 80345689... *"
                                 value={values.c_phone_no}
                                 onChange={(e) => {
-                                    const { value: numC } = e.target;
-                                    const reg =
-                                        /^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$/;
+                                    // const { value: numC } = e.target;
+                                    // const reg = /^-?\d*(\.\d*)?$/;
+                                    // // /^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$/;
 
-                                    if (
-                                        reg.test(numC) ||
-                                        numC === "" ||
-                                        numC === "-"
-                                    ) {
-                                        onChange(numC);
-                                    }
+                                    // if (
+                                    //     reg.test(numC) ||
+                                    //     numC === "" ||
+                                    //     numC === "-"
+                                    // ) {
+                                    //     onChange(numC);
+                                    // }
 
                                     setValues({
                                         ...values,

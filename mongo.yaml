@@ -1,0 +1,49 @@
+version: "3"
+services:
+    # my-app:
+    # image: ${docker-registry}/my-app:1.0
+    # ports:
+    # - 3000:3000
+    backend:
+        build: server/.
+        ports:
+            - 8800:8800
+    frontend:
+        build: client/.
+        ports:
+            - 3000:3000
+    mongodb:
+        image: mongo
+        ports:
+            - 27017:27017
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=admin
+            - MONGO_INITDB_ROOT_PASSWORD=password
+        networks:
+            - mongo-network
+        # volumes:
+        #     - mongo-data:/data/db
+    mongo-express:
+        image: mongo-express
+        restart: always # fixes MongoNetworkError when mongodb is not ready when mongo-express starts
+        ports:
+            - 8080:8081
+        environment:
+            - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+            - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+            - ME_CONFIG_MONGODB_SERVER=mongodb
+        depends_on:
+            - mongodb
+        networks:
+            - mongo-network
+networks:
+    mongo-network:
+        driver: bridge
+# volumes:
+#     mongo-data:
+#         driver: local
+# docker-compose -f mongo.yaml up starts and logs container
+# docker-compose -f mongo.yaml down stops container
+#NOTE: default network and created if not specified and they are purged when "down" is run
+# docker exec -it mongo_containerID bash    ....to enter the container shell
+# Run  "mongosh -u mongodb_username -p mongodb_password" at the container shell to have access to the DB

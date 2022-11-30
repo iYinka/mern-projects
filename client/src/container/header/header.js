@@ -1,9 +1,11 @@
 import React from "react";
 import styles from "./styles/Header.module.css";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 const SettingsHeader = (props) => {
     return (
         <div className={styles.HeaderTop}>
+            <div></div>
             <div className={styles.topBar}>
                 <ul>
                     <li
@@ -28,7 +30,10 @@ const SettingsHeader = (props) => {
                         Contacts
                     </li>
                 </ul>
-            </div>
+            </div>{" "}
+            <button onClick={() => localStorage.removeItem("token")}>
+                <Link to="/">Log Out</Link>
+            </button>
         </div>
     );
 };

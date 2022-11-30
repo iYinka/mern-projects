@@ -314,16 +314,16 @@ const ContactsTable = ({ res, props }) => {
                                 type="number"
                                 placeholder={singleContact.phoneNumber}
                                 onChange={(e) => {
-                                    const { value: numC } = e.target;
-                                    const reg = /^-?\d*(\.\d*)?$/;
+                                    // const { value: numC } = e.target;
+                                    // const reg = /^-?\d*(\.\d*)?$/;
 
-                                    if (
-                                        reg.test(numC) ||
-                                        numC === "" ||
-                                        numC === "-"
-                                    ) {
-                                        onChange(numC);
-                                    }
+                                    // if (
+                                    //     reg.test(numC) ||
+                                    //     numC === "" ||
+                                    //     numC === "-"
+                                    // ) {
+                                    //     onChange(numC);
+                                    // }
 
                                     setValues({
                                         ...values,
@@ -495,7 +495,6 @@ const ContactsTable = ({ res, props }) => {
                                         <div className={styles.action}>
                                             <MdDelete
                                                 className={styles.md_delete}
-                                                color="#ff0000"
                                                 size={25}
                                                 onClick={() => {
                                                     setSingleContact(x);

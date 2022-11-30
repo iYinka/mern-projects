@@ -4,8 +4,8 @@ import User from "../../model/userModel.js";
 import { loginSchema, registerSchema } from "../validationSchema.js";
 import dotenv from "dotenv";
 dotenv.config();
-import { Strategy as FacebookStrategy } from "passport-facebook";
-import { Strategy as GoogleStrategy } from "passport-google-oauth20";
+// import { Strategy as FacebookStrategy } from "passport-facebook";
+// import { GoogleStrategy } from "passport-google-oauth20";
 import passport from "passport";
 import findOrCreate from "mongoose-findorcreate";
 
@@ -117,6 +117,6 @@ export const loginUser = async (req, res) => {
 // Generate TOKEN
 const generateToken = (id) => {
     return jwt.sign({ id }, process.env.TOKEN_SECRET, {
-        expiresIn: process.env.TOKEN_EXP,
+        expiresIn: "1d",
     });
 };

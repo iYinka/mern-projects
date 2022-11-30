@@ -5,46 +5,24 @@ import usersRoutes from "./routes/index.js";
 import dotenv from "dotenv";
 dotenv.config();
 import cors from "cors";
-import passport from "passport";
-import findOrCreate from "mongoose-findorcreate";
-// import { Strategy as GoogleStrategy } from "passport-google-oauth20";
-import { Strategy as FacebookStrategy } from "passport-facebook";
-import User from "./model/userModel.js";
-import session from "express-session";
-import { GoogleAuth } from "./controllers/auth/passport.js";
 
-const con = mongoose.connection;
-const app = express();
-const PORT = process.env.PORT || 8800;
-
-//CALLING SESSION
-app.use(
-    session({
-        secret: "This is my very own secret",
-        resave: false,
-        saveUninitialized: false,
-    })
-);
-
-//PASSPORT
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.use(
-    cors({
-        origin: "http://localhost:3000",
-        // methods: "GET,POST,PATCH,DELETE",
-        // credentials: true,
-    })
-);
 //Connect with mongoDB
 mongoose.connect(process.env.MONGO_PASS, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
 
-passport.use(User.createStrategy());
+const con = mongoose.connection;
+const app = express();
+const PORT = process.env.PORT || 8800;
 
+app.use(
+    cors({
+        origin: "http://localhost:3000",
+    })
+);
+
+app.set("view engine", "ejs");
 app.use(
     bodyParser.urlencoded({
         extended: true,
@@ -53,18 +31,41 @@ app.use(
 app.use(bodyParser.json());
 
 app.use("/", usersRoutes);
-// app.use("/auth", usersRoutes);
+
+// app.get("*", (req, res)=>{
+//     res.render("404
+//         ", {title: "404 page"})
+// })
 
 app.use(function (err, req, res, next) {
-    res.status(500).send({
-        message: "Request can't be processed please check details",
-    });
+    console.log(err);
+    res.status(500).send({ message: "Error oooooooo" });
 });
+
+// //CALLING SESSION
+// app.use(
+//     session({
+//         secret: "This is my very own secret",
+//         resave: false,
+//         saveUninitialized: false,
+//     })
+// );
+
+// //PASSPORT
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+// //FOR THE HASHING AND CRYPTING
+// userSchema.plugin(passportLocalMongoose);
+
+// //ENCRYPTION package added as a plugin
+// const secret = process.env.SECRET;
+// userSchema.plugin(encrypt, { secret: secret, encryptedFields: ["password"] });
 
 con.on("open", () => {
     console.log("Connected.........");
 });
 
 app.listen(PORT, () => {
-    console.log(`app listening on port ${PORT}!`);
+    console.log(`App listening on port ${PORT}!`);
 });
