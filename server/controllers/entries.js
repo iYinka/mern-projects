@@ -58,6 +58,7 @@ export const createContact = async (req, res) => {
     try {
         //Check if the user already exists in the db
         const contactExists = await Contact.findOne({
+            user: req.user.id,
             phoneNumber: req.body.phoneNumber,
         });
         if (contactExists)
