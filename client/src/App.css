@@ -457,3 +457,34 @@ p {
 }
 
 /* ANT CHECKBOX ends*/
+/* Alert  */
+.alerts {
+  /* width: 50%; */
+  font-family: var(--font);
+  position: absolute;
+  top: 20px;
+  left: 10px;
+}
+
+.alerts span {
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
+/* Alert ends */
+
+/* Button Blinker */
+.blink_me {
+  animation: blinker 1s linear infinite;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Button Blinker Ends */

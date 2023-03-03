@@ -199,6 +199,13 @@
   width: 100%;
 }
 
+.inputHolder label span {
+  font-size: 10px;
+  font-weight: 200;
+  font-style: italic;
+  text-align: left;
+}
+
 .inputHolder h6 {
   font-size: 14px;
   font-weight: 300;

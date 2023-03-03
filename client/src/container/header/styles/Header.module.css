@@ -32,7 +32,7 @@
 }
 
 .topBar ul li {
-  font-family: "Manrope";
+  font-family: var(--font);
   font-size: 20px;
   font-weight: 400;
   padding: 15px 20px 0px;
@@ -58,7 +58,11 @@
   border-radius: 5px;
   background-color: #1C3879;
   cursor: pointer;
-  transition: all 0.4s ease-in-out;
+transition: box-shadow .15s,
+transform .15s;
+will-change: box-shadow,
+transform;
+
 }
 
 .HeaderTop button a {
@@ -67,7 +71,7 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  font-family: "Manrope";
+  font-family: var(--font);
   font-size: 15px;
   font-weight: 900;
   color: #fff !important;
@@ -76,9 +80,83 @@
 
 .HeaderTop button:focus {
   outline: none;
+    box-shadow: #D6D6E7 0 0 0 1.5px inset,
+    rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+    #D6D6E7 0 -3px 0 inset;
+
 }
 
 .HeaderTop button:hover {
   background-color: #3f65bd;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.56);
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+  rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+  #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+  }
+
+  .HeaderTop button:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+  }
+
+  .HeaderTop .delBtn {
+    background-color: #ff0000;
+    width: 7em;
+    font-family: var(--font);
+    font-size: 12px;
+    color: #fff;
+  }
+
+  .HeaderTop .delBtn:hover {
+    background-color: #c10c0c;
+  }
+
+  .tooltip {
+    visibility: hidden;
+    /* bottom: 100%;
+  right: 50%; */
+    margin: 7px;
+    width: max-content;
+    color: #f81212;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 2;
+    box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.4);
+    transform: translate3d(0, -20px, 0);
+    transition: all .5s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  .HeaderTop .delBtn:hover .tooltip {
+    visibility: visible;
+    cursor: help;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    opacity: 1;
+    transform: translate3d(40%, 5%, 0);
+    gap: 5px;
+  }
+
+
+  /* Button Blinker */
+  .blink_me {
+    animation: blinker 1s linear infinite;
+    font-family: var(--font);
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
 }
+/* Button Blinker Ends */

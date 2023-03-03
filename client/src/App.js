@@ -22,12 +22,11 @@ function App() {
 
     const handleTabs = (e) => {
         setTabs(e);
-        console.log({ tabs: e });
+        // console.log({ tabs: e });
     };
 
     const Token = localStorage.getItem("token");
 
-    console.log(Token);
     return (
         <>
             <Router>

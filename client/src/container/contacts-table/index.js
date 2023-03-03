@@ -34,6 +34,7 @@ import { FaPhoneVolume, FaUserTie } from "react-icons/fa";
 import type { CheckboxChangeEvent } from "antd/es/checkbox";
 
 const Token = localStorage.getItem("token");
+console.log(`Tokenss: ${Token}`);
 
 const ContactsTable = ({ res, props }) => {
     const { TextArea } = Input;
@@ -65,11 +66,11 @@ const ContactsTable = ({ res, props }) => {
                     Authorization: `Bearer ${Token}`,
                 },
             }).then((res) => {
+                setIsLoading(false);
                 if (res.ok) {
                     res.json().then((json) => {
                         setContacts(json);
                         message.success("Found saved contacts");
-                        setIsLoading(false);
                     });
                 }
             });
@@ -445,19 +446,26 @@ const ContactsTable = ({ res, props }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {TableData.length === 0 ? (
+                        {isLoading === true && (
                             <tr>
                                 <td colSpan="100%">
                                     <div className={styles.loader}>
-                                        {isLoading ? (
-                                            <Spin size="large" />
-                                        ) : (
-                                            <p>No contact record found</p>
-                                        )}
+                                        <Spin size="large" />
                                     </div>
                                 </td>
                             </tr>
-                        ) : (
+                        )}
+                        {isLoading === false && TableData.length === 0 && (
+                            <tr>
+                                <td colSpan="100%">
+                                    <div className={styles.loader}>
+                                        <p>No contact record found</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        )}
+                        {isLoading === false &&
+                            TableData.length !== 0 &&
                             TableData.map((x, i) => (
                                 <tr key={x._id}>
                                     <td style={{ textAlign: "right" }}>
@@ -519,8 +527,7 @@ const ContactsTable = ({ res, props }) => {
                                         </div>
                                     </td>
                                 </tr>
-                            )).reverse()
-                        )}
+                            )).reverse()}
                     </tbody>
                 </table>{" "}
                 {showModal === "delete contact" && deleteContactModal}

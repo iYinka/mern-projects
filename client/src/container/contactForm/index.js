@@ -1,5 +1,17 @@
 import React, { useState } from "react";
-import { Button, Checkbox, Col, Input, Row, Select, TextArea } from "antd";
+import * as EmailValidator from "email-validator";
+import {
+    Alert,
+    Button,
+    Checkbox,
+    Col,
+    Input,
+    message,
+    Row,
+    Select,
+    Spin,
+    TextArea,
+} from "antd";
 import { FaUserTie, FaPhoneVolume, FaEnvelopeOpen } from "react-icons/fa";
 import { BsCheckAll } from "react-icons/bs";
 import {
@@ -14,12 +26,18 @@ import { endpoints } from "../../service";
 function ContactForm(props) {
     const { TextArea } = Input;
     const { Option } = Select;
-    const [contacts, setContacts] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
     const [values, setValues] = useState({
         c_name: "",
         c_email: "",
         c_phone_no: "",
         c_desc: "",
+    });
+    const [notify, setNotify] = useState({
+        type: "",
+        message: "",
     });
 
     const Token = localStorage.getItem("token");
@@ -33,8 +51,56 @@ function ContactForm(props) {
     const onSearch = (value) => {
         console.log("search:", value);
     };
+    const handleClose = (event, reason) => {
+        if (reason === "clickaway") {
+            return;
+        }
+        setNotify({
+            ...notify,
+            isOpen: false,
+        });
+    };
+
+    const CreateNewContact = () => {
+        if (!values.c_name || values.c_name === "") {
+            setIsOpen(true);
+            setNotify({
+                type: "error",
+                message: "Contact name can not be empty",
+            });
+            return;
+        }
+
+        if (!values.c_email || values.c_email === "") {
+            setIsOpen(true);
+            setNotify({
+                type: "error",
+                message: "Submit a valid contact Email address",
+            });
+            return;
+        }
+        if (!EmailValidator.validate(values.c_email)) {
+            setIsOpen(true);
+            setNotify({
+                type: "error",
+                message: "Submit a valid Email address",
+            });
+            return;
+        }
+        if (!values.c_phone_no || values.c_phone_no === "") {
+            setIsOpen(true);
+            setNotify({
+                type: "error",
+                message: "Contact Phone number can not be empty",
+            });
+            return;
+        }
+
+        CreateContact();
+    };
 
     const CreateContact = async () => {
+        setIsLoading(true);
         const contactDetails = {
             name: values.c_name,
             email: values.c_email,
@@ -56,8 +122,16 @@ function ContactForm(props) {
                 mode: "cors",
                 credentials: "same-origin",
             }).then((res) => {
+                setIsLoading(false);
                 if (res.ok) {
                     props.handleTabs("Contacts");
+                }
+                if (res.status === 400) {
+                    setIsOpen(true);
+                    setNotify({
+                        type: "error",
+                        message: "Contact's phone number exists",
+                    });
                 }
                 return res.json;
             });
@@ -66,8 +140,23 @@ function ContactForm(props) {
         }
     };
 
+    setTimeout(() => {
+        setIsOpen(false);
+    }, 3000);
+
     return (
         <div className="contact-form">
+            <div className="alert">
+                {isOpen && (
+                    <Alert
+                        type={notify.type}
+                        message={notify.message}
+                        closable
+                        onClose={handleClose}
+                    />
+                )}
+            </div>
+
             {/* <h1>Contact Form</h1> */}
             <form className="form">
                 <Row gutter={[16, 16]}>
@@ -207,10 +296,16 @@ function ContactForm(props) {
                 <Button
                     className="formBtn"
                     onClick={() => {
-                        CreateContact();
+                        CreateNewContact();
                     }}
                 >
-                    Submit
+                    {isLoading === false ? (
+                        "Add Contact"
+                    ) : (
+                        <>
+                            <span className="blink_me">In Progress...</span>{" "}
+                        </>
+                    )}
                 </Button>
             </form>
         </div>

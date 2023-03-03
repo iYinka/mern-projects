@@ -13,7 +13,7 @@ import validator from "validator";
 
 const LoginLayout = (props) => {
     const navigate = useNavigate();
-    const [open, setOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const [msg, setMsg] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [values, setValues] = useState({
@@ -63,7 +63,7 @@ const LoginLayout = (props) => {
 
     const ValidateUser = () => {
         if (!values.email || values.email === "") {
-            setOpen(true);
+            setIsOpen(true);
             setNotify({
                 type: "error",
                 message: "Submit a valid Email address",
@@ -71,7 +71,7 @@ const LoginLayout = (props) => {
             return;
         }
         if (!EmailValidator.validate(values.email)) {
-            setOpen(true);
+            setIsOpen(true);
             setNotify({
                 type: "error",
                 message: "Submit a valid Email address",
@@ -79,7 +79,7 @@ const LoginLayout = (props) => {
             return;
         }
         if (!values.password) {
-            setOpen(true);
+            setIsOpen(true);
             setNotify({
                 type: "error",
                 message: "Password is incorrect",
@@ -105,7 +105,9 @@ const LoginLayout = (props) => {
                 mode: "cors",
                 credentials: "same-origin",
             }).then((res) => {
+                setIsLoading(false);
                 if (res.status === 201) {
+                    setIsLoading(false);
                     navigate("/my_contacts");
                     res.json().then((json) => {
                         localStorage.setItem("token", json.user.accessToken);
@@ -150,15 +152,16 @@ const LoginLayout = (props) => {
 
     setTimeout(() => {
         setIsLoading(false);
-        setOpen(false);
-    }, 5000);
+        setIsOpen(false);
+    }, 3000);
+
     const googleAuth = () => {
         window.open(`http://localhost:8080/auth/google/callback`, "self");
     };
     return (
         <div className={styles.bck}>
             <div className={styles.alert}>
-                {open && (
+                {isOpen && (
                     <Alert
                         type={notify.type}
                         message={notify.message}
@@ -239,9 +242,9 @@ const LoginLayout = (props) => {
                         <button
                             className={styles.loaderBtn}
                             onClick={() => ValidateUser()}
-                            disable={isLoading}
+                            disable={isLoading === true ? true : false}
                         >
-                            {!isLoading ? (
+                            {isLoading === false ? (
                                 "Sign In"
                             ) : (
                                 <>
@@ -252,7 +255,7 @@ const LoginLayout = (props) => {
                                 </>
                             )}
                         </button>
-                        <div class="card social-block">
+                        {/* <div class="card social-block">
                             <button onClick={googleAuth}>
                                 <div class="card-body">
                                     <a
@@ -265,11 +268,11 @@ const LoginLayout = (props) => {
                                     </a>
                                 </div>
                             </button>
-                        </div>
+                        </div> */}
 
                         <div className={styles.signUpDiv}>
                             <p>
-                                Don't have an account{" "}
+                                Don't have an account?{" "}
                                 <Link to="/register">Sign up</Link>
                             </p>
                         </div>

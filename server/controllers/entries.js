@@ -22,7 +22,7 @@ export const getAllContacts = async (req, res) => {
 //RETRIEVE ENTRY BY ID
 export const getContact = async (req, res) => {
     try {
-        const contact = await Contact.findById(req.params.id, req.body);
+        const contact = await Contact.findById(req.user.id, req.body);
 
         if (!contact) {
             res.status(404).send({
@@ -56,6 +56,15 @@ export const createContact = async (req, res) => {
     });
 
     try {
+        //Check if the user already exists in the db
+        const contactExists = await Contact.findOne({
+            phoneNumber: req.body.phoneNumber,
+        });
+        if (contactExists)
+            return res
+                .status(400)
+                .send({ msg: "Contact's phone number exists" });
+
         const new_contact = await contact.save();
         const _contact = await Contact.find();
 

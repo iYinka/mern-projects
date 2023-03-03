@@ -27,7 +27,7 @@ export const registerUser = async (req, res) => {
 
     //Check if the user already exists in the db
     const emailExists = await User.findOne({ email: req.body.email });
-    if (emailExists) return res.send("Email already exists");
+    if (emailExists) return res.json({ msg: "Email already exists" });
 
     // Creating with passport
     // const newUser = new User({
@@ -111,6 +111,18 @@ export const loginUser = async (req, res) => {
         return res
             .status(404)
             .send({ status: "Fail", message: "User not found" });
+    }
+};
+
+// DELETE USER BY ID
+export const deleteUser = async (req, res) => {
+    try {
+        await User.findByIdAndDelete(req.user);
+        res.json({ status: "Success", message: "User deleted" });
+    } catch (err) {
+        res.status(500).json({
+            err: err.message || `Can not delete user . Maybe user not found!`,
+        });
     }
 };
 

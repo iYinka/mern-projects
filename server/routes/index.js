@@ -1,6 +1,7 @@
 import express from "express";
 import passport from "passport";
 import {
+    deleteUser,
     errorHandler,
     loginUser,
     registerUser,
@@ -50,6 +51,8 @@ const router = express.Router();
 // AUTH ROUTES
 router.post("/register_user", errorHandler(registerUser));
 router.post("/login_user", errorHandler(loginUser));
+router.delete("/delete_user", privacy, errorHandler(deleteUser));
+
 
 // CONTACTS ROUTES
 router.get("/contacts/", privacy, getAllContacts);
