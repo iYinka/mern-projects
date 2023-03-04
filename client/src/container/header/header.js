@@ -13,6 +13,14 @@ const SettingsHeader = (props) => {
 
     const Token = localStorage.getItem("token");
 
+    const LogOut = () => {
+        localStorage.removeItem("token");
+        localStorage.clear();
+        sessionStorage.clear();
+
+        navigate("/");
+    };
+
     // DELETE USER
     const DeleteUserAccount = async () => {
         setIsLoading(true);
@@ -82,7 +90,7 @@ const SettingsHeader = (props) => {
                     </li>
                 </ul>
             </div>{" "}
-            <button onClick={() => localStorage.removeItem("token")}>
+            <button onClick={() => LogOut()}>
                 <Link to="/">Log Out</Link>
             </button>
         </div>

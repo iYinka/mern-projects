@@ -36,7 +36,7 @@ import type { CheckboxChangeEvent } from "antd/es/checkbox";
 const Token = localStorage.getItem("token");
 console.log(`Tokenss: ${Token}`);
 
-const ContactsTable = ({ res, props }) => {
+const ContactsTable = ({ props }) => {
     const { TextArea } = Input;
     const { Option } = Select;
     const [contacts, setContacts] = useState([]);
@@ -55,6 +55,10 @@ const ContactsTable = ({ res, props }) => {
     const onChange = (value) => {
         console.log(`selected ${value}`);
     };
+
+    useEffect(() => {
+        fetchAllContacts();
+    }, []);
 
     const fetchAllContacts = async () => {
         setIsLoading(true);
@@ -79,10 +83,6 @@ const ContactsTable = ({ res, props }) => {
             setIsLoading(false);
         }
     };
-
-    useEffect(() => {
-        fetchAllContacts();
-    }, []);
 
     // DELETE CONTACT
     const DeleteContact = async () => {
@@ -427,6 +427,7 @@ const ContactsTable = ({ res, props }) => {
     );
     // EDIT MODAL ENDS
 
+    const contactData = TableData.reverse();
     return (
         <div className={styles.tableContainer}>
             <div className={styles.tableContent}>
@@ -466,7 +467,7 @@ const ContactsTable = ({ res, props }) => {
                         )}
                         {isLoading === false &&
                             TableData.length !== 0 &&
-                            TableData.map((x, i) => (
+                            contactData.map((x, i) => (
                                 <tr key={x._id}>
                                     <td style={{ textAlign: "right" }}>
                                         {i + 1}
@@ -527,7 +528,7 @@ const ContactsTable = ({ res, props }) => {
                                         </div>
                                     </td>
                                 </tr>
-                            )).reverse()}
+                            ))}
                     </tbody>
                 </table>{" "}
                 {showModal === "delete contact" && deleteContactModal}

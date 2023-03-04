@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 const { Model, Schema } = mongoose;
+const { ObjectId } = mongoose.Schema.Types;
 
 const reqString = {
     type: String,
@@ -21,11 +22,10 @@ const bool = {
 const num = { type: Number };
 const string = { type: String };
 
-const contactSchema = new Schema(
+const contactSchema = new mongoose.Schema(
     {
         user: {
             type: mongoose.Schema.Types.ObjectId,
-            required: true,
             ref: "User",
         },
         name: reqString,

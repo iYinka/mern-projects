@@ -6,13 +6,16 @@ const { Model, Schema } = mongoose;
 
 const reqString = {
     type: String,
-    // required: true,
+    required: "Please enter a value",
 };
 
 const reqUniqueString = {
     type: String,
-    // required: true,
+    required: "Please enter an email address",
+
     unique: true,
+    trim: true,
+    lowercase: true,
 };
 
 const userSchema = new Schema(

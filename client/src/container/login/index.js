@@ -119,6 +119,8 @@ const LoginLayout = (props) => {
                             placement: "topLeft",
                         });
                     });
+                    window.location.reload(false);
+
                 } else if (res.status === 401) {
                     navigate("/");
                     res.json().then((json) => {

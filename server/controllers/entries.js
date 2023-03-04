@@ -61,20 +61,21 @@ export const createContact = async (req, res) => {
             user: req.user.id,
             phoneNumber: req.body.phoneNumber,
         });
-        if (contactExists)
+        if (contactExists) {
             return res
                 .status(400)
                 .send({ msg: "Contact's phone number exists" });
+        } else {
+            const new_contact = await contact.save();
+            const _contact = await Contact.find();
 
-        const new_contact = await contact.save();
-        const _contact = await Contact.find();
-
-        _contact.push({ ...new_contact });
-        res.status(201).json({
-            success: true,
-            new_contact,
-            message: "Entry successfully created",
-        });
+            _contact.push({ ...new_contact });
+            res.status(201).json({
+                success: true,
+                new_contact,
+                message: "Entry successfully created",
+            });
+        }
     } catch (err) {
         res.status(500).send({
             message: err.message,
@@ -140,6 +141,8 @@ export const updateContact = async (req, res) => {
 
 // DELETE ENTRY BY ID
 export const deleteContact = async (req, res) => {
+    console.log(`fffff`, req.user.id);
+
     try {
         const user = await User.findById(req.user.id);
         // Check if user is logged in
@@ -163,7 +166,7 @@ export const deleteContact = async (req, res) => {
         const deletedContact = await contact.remove();
         if (!deletedContact) {
             res.status(404).send({
-                message: `Can not delete entry with ${id}. Maybe contact not found!`,
+                message: `Can not delete entry. Maybe contact not found!`,
             });
         } else {
             res.status(201).json({
@@ -173,7 +176,7 @@ export const deleteContact = async (req, res) => {
         }
     } catch (err) {
         res.status(404).send({
-            message: `Can not delete entry with ${id}. Maybe contact not found!`,
+            message: `Can not delete entry}. Maybe contact not found!`,
         });
     }
 };
