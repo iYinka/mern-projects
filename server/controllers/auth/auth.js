@@ -117,7 +117,7 @@ export const loginUser = async (req, res) => {
 // DELETE USER BY ID
 export const deleteUser = async (req, res) => {
     try {
-        await User.findByIdAndDelete(req.user);
+        await User.findByIdAndDelete(req.user.id);
         res.json({ status: "Success", message: "User deleted" });
     } catch (err) {
         res.status(500).json({

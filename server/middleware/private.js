@@ -3,9 +3,9 @@ import Contact from "../model/contactModel.js";
 import User from "../model/userModel.js";
 export const privacy = (req, res, next) => {
     const { authorization } = req.headers;
-       const  token = authorization.split(" ")[1];
+    const token = authorization.split(" ")[1];
 
-    console.log(`authorization,`, token);
+    // console.log(`authorization,`, token);
 
     //authorization === Bearer ewefwegwrherhe
     if (!authorization) {
