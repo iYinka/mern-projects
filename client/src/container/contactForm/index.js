@@ -165,7 +165,6 @@ function ContactForm(props) {
                             <span>
                                 <FaUserTie size={12} color="#1C3879" />
                             </span>
-                            {/* <label htmlFor="c_name">Company Name</label> */}
                             <Input
                                 id="c_name"
                                 placeholder="Your Name *"
@@ -218,18 +217,6 @@ function ContactForm(props) {
                                 placeholder="Phone: 80345689... *"
                                 value={values.c_phone_no}
                                 onChange={(e) => {
-                                    // const { value: numC } = e.target;
-                                    // const reg = /^-?\d*(\.\d*)?$/;
-                                    // // /^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$/;
-
-                                    // if (
-                                    //     reg.test(numC) ||
-                                    //     numC === "" ||
-                                    //     numC === "-"
-                                    // ) {
-                                    //     onChange(numC);
-                                    // }
-
                                     setValues({
                                         ...values,
                                         c_phone_no: e.target.value,
@@ -243,7 +230,6 @@ function ContactForm(props) {
                     </Col>
                     <Col xs={{ span: 24 }} md={{ span: 12 }}>
                         <div className="">
-                            {/* <label htmlFor="c_role">Company Category</label> */}
                             <div className="selector">
                                 <span className="selector_phoneIcon">
                                     <MdBookmarks size={15} color="#1C3879" />

@@ -34,7 +34,6 @@ import { FaPhoneVolume, FaUserTie } from "react-icons/fa";
 import type { CheckboxChangeEvent } from "antd/es/checkbox";
 
 const Token = localStorage.getItem("token");
-console.log(`Tokenss: ${Token}`);
 
 const ContactsTable = ({ props }) => {
     const { TextArea } = Input;
@@ -180,7 +179,7 @@ const ContactsTable = ({ props }) => {
     //  For PAGINATION
     // Get current posts
     const [currentPage, setCurrentPage] = useState(1);
-    const [pageSize] = useState(10);
+    const [pageSize] = useState(5);
 
     const indexOfLastData = currentPage * pageSize;
     const indexOfFirstData = indexOfLastData - pageSize;
@@ -217,7 +216,9 @@ const ContactsTable = ({ props }) => {
             <h3 className={styles.modal_h3}>
                 Are you sure you want to {""}
                 <span style={{ color: "#ff0000", fontSize: "16px" }}>
-                    {singleContact?.isActive === true ? "deactivate" : "DELETE"}
+                    {singleContact?.isActive === true
+                        ? "deactivate and DELETE"
+                        : "DELETE"}
                 </span>{" "}
                 this contact with the name:{" "}
                 <span style={{ color: "#ff0000", fontSize: "16px" }}>

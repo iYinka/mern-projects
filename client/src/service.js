@@ -1,5 +1,5 @@
-const baseUrl = "http://localhost:8800";
-//const baseUrl = "https://kind-gold-cow-hem.cyclic.app";
+// const baseUrl = "http://localhost:8800";
+const baseUrl = `${process.env.REACT_APP_BASE_URL}`;
 
 export const endpoints = {
     // USERS

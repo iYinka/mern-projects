@@ -446,60 +446,6 @@
   color: #FF0000;
 }
 
-/* .table tbody tr td .action .activate {
-  border: 1px solid #FF0000;
-  color: #ffffff;
-  border-radius: 5px;
-  height: 40px;
-  font-family: var(--font);
-  font-weight: 600;
-  font-size: 14px;
-  background-color: #FF0000;
-  margin-right: 10px;
-  width: 150px;
-  cursor: pointer;
-}
-
-.table tbody tr td .action .activate:hover {
-  color: #ffffff;
-  background-color: #FF0000;
-  border: 1px solid #FF0000;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
-}
-
-.table tbody tr td .action .activate:focus {
-  color: #ffffff;
-  background-color: #FF0000;
-  border: 1px solid #FF0000;
-}
-
-.table tbody tr td .action .deactivate {
-  border: 1px solid #42c10a;
-  color: #ffffff;
-  border-radius: 5px;
-  height: 40px;
-  font-family: var(--font);
-  font-weight: 600;
-  font-size: 12px;
-  background-color: #42c10a;
-  margin-right: 10px;
-  width: 150px;
-  cursor: pointer;
-}
-
-.table tbody tr td .action .deactivate:hover {
-  color: #ffffff;
-  background-color: #42c10a;
-  border: 1px solid #42c10a;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
-}
-
-.table tbody tr td .action .deactivate:focus {
-  color: #ffffff;
-  background-color: #42c10a;
-  border: 1px solid #42c10a;
-} */
-
 /* Modal */
 .modal_h3 {
   font: var(--font);

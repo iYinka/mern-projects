@@ -10,22 +10,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignUp from "./container/sign-up";
 
 function App() {
-    const [data, setData] = useState(null);
     const [tabs, setTabs] = useState("Contact Form");
-
-    // useEffect(() => {
-    //     fetch(`${endpoints.getAllContacts}`)
-    //         .then((res) => res.json())
-    //         .then((data) => setData(data.message));
-    // }, []);
-    // console.log({ data });
 
     const handleTabs = (e) => {
         setTabs(e);
         console.log({ tabs: e });
     };
-
-    const Token = localStorage.getItem("token");
 
     return (
         <>

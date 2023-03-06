@@ -4,9 +4,6 @@ import { Input, Row, Col, Alert, notification, Spin } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import * as EmailValidator from "email-validator";
 import { Link, useNavigate } from "react-router-dom";
-// import { LoginVendor } from "../../store/actions/authAction";
-// import { ButtonLoader } from "../../components/buttons";
-// import Spinner from "../../components/spinner";
 import { LoadingOutlined } from "@ant-design/icons";
 import { endpoints } from "../../service";
 import validator from "validator";
@@ -120,7 +117,6 @@ const LoginLayout = (props) => {
                         });
                     });
                     window.location.reload(false);
-
                 } else if (res.status === 401) {
                     navigate("/");
                     res.json().then((json) => {
@@ -257,20 +253,6 @@ const LoginLayout = (props) => {
                                 </>
                             )}
                         </button>
-                        {/* <div class="card social-block">
-                            <button onClick={googleAuth}>
-                                <div class="card-body">
-                                    <a
-                                        class="btn btn-block btn-social btn-facebook"
-                                        href="/auth/google"
-                                        role="button"
-                                    >
-                                        <i class="fab fa-facebook"></i>
-                                        Sign In with Google
-                                    </a>
-                                </div>
-                            </button>
-                        </div> */}
 
                         <div className={styles.signUpDiv}>
                             <p>
