@@ -18,7 +18,9 @@ const PORT = process.env.PORT || 8800;
 
 app.use(
     cors({
-        origin: "http://localhost:3000",
+        origin: "https://econtact.vercel.app/",
+
+        //        origin: "http://localhost:3000",
     })
 );
 
